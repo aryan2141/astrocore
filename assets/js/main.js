@@ -253,6 +253,13 @@ const loaderIntroComplete = new Promise((resolve) => {
 // This is the only timeline dedicated to the preloader. The existing site
 // entrance and ScrollTrigger animations remain separate and unchanged.
 const loaderTimeline = gsap.timeline({ paused: true });
+const satelliteOrbitTween = reduceLoaderMotion ? null : gsap.to(loaderSatellite, {
+    offsetDistance: "100%",
+    duration: 4.5,
+    ease: "none",
+    repeat: -1,
+    paused: true
+});
 
 if (reduceLoaderMotion) {
     loaderTimeline
@@ -272,9 +279,22 @@ if (reduceLoaderMotion) {
         .to(loaderOrbit, { autoAlpha: 1, strokeDashoffset: 0, duration: 0.55, ease: "power1.out" }, "-=0.12")
         .to(loaderSatellite, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "power1.out" }, "-=0.1")
         .addLabel("loader-ready")
-        .call(resolveLoaderIntro, [], "loader-ready")
-        .to(loaderSatellite, { offsetDistance: "100%", duration: 4.5, ease: "none", repeat: -1 }, "loader-ready");
+        .call(() => {
+            resolveLoaderIntro();
+            satelliteOrbitTween.play(0);
+        }, [], "loader-ready");
 }
+
+loaderTimeline
+    .addPause("await-hero-assets")
+    .to(loaderScene, { autoAlpha: 0, scale: 0.94, duration: 0.28, ease: "power2.in" })
+    .to(loader, { autoAlpha: 0, duration: 0.4, ease: "power2.inOut" }, "-=0.16")
+    .call(() => {
+        satelliteOrbitTween?.kill();
+        loaderTimeline.kill();
+        loader?.remove();
+        startPageAfterLoader();
+    });
 
 loaderTimeline.play(0);
 
@@ -304,15 +324,9 @@ async function finishLoader() {
         loaderIntroComplete
     ]);
 
-    const exitStart = loaderTimeline.time();
-    loaderTimeline
-        .to(loaderScene, { autoAlpha: 0, scale: 0.94, duration: 0.28, ease: "power2.in" }, exitStart)
-        .to(loader, { autoAlpha: 0, duration: 0.4, ease: "power2.inOut" }, exitStart + 0.12)
-        .call(() => {
-            loaderTimeline.kill();
-            loader?.remove();
-            startPageAfterLoader();
-        }, [], exitStart + 0.53);
+    // The timeline pauses after its intro. Resume its own exit only once the
+    // critical Hero assets are ready.
+    loaderTimeline.play();
 }
 
 function startPageAfterLoader() {

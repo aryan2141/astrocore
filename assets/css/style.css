@@ -129,7 +129,7 @@ img {
     aspect-ratio: 1;
     border-radius: 50%;
     box-shadow: 0 0 14px 4px rgba(56, 189, 248, 0.42);
-    offset-path: ellipse(84% 28% at 50% 50%);
+    offset-path: ellipse(54% 22% at 50% 50%);
     offset-distance: 0%;
     offset-rotate: 0deg;
     will-change: transform, opacity, offset-distance;
