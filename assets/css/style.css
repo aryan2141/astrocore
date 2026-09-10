@@ -36,9 +36,27 @@ html {
     overflow-x: clip;
 }
 
+html.loader-active,
+body.loader-active {
+    overflow: hidden;
+    touch-action: none;
+}
+
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* Loader */
+.astro-loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 111;
+    background: #000;
 }
 
 /* GSAP reveal transforms begin outside their own section. Clip those transient
