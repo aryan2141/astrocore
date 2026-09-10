@@ -1,0 +1,477 @@
+:root {
+    --r: 120px;
+    /* the radius */
+    --s: 120px;
+    /* size of inner curve */
+    --x: 20px;
+    /* horizontal offset (no percentage) */
+    --y: 10px;
+    /* vertical offset (no percentage) */
+
+    --_m: /calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%, #0000 72%);
+    --_g: conic-gradient(at calc(100% - var(--r)) var(--r), #0000 25%, #000 0);
+    --_d: (var(--s) + var(--r));
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFEFFC;
+    margin: 0;
+    min-width: 0;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* A final root-level guard for transformed pixels; unlike overflow: hidden,
+   clip does not create a scrolling container or suppress vertical scrolling. */
+html {
+    overflow-x: clip;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* GSAP reveal transforms begin outside their own section. Clip those transient
+   pixels at the section boundary so they never create a page-wide x scrollbar. */
+.counter,
+.mission,
+.research,
+.footer {
+    overflow-x: clip;
+}
+
+.btn {
+    padding: 10px 20px;
+    color: #0F0D0D;
+    font-weight: 400;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    transition: 0.4s;
+    font-family: "Play", sans-serif;
+}
+
+.btn.btn:hover,
+.btn.btn:active,
+.btn.btn:focus {
+    color: #FFF;
+    background-color: #2E1149;
+}
+
+@media screen and (min-width: 1600px) {
+    .container {
+        max-width: 1440px;
+    }
+}
+
+/* Header */
+.header {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    background-color: transparent;
+    z-index: 20;
+}
+
+.header .navbar {
+    padding: 0;
+}
+
+.header .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    align-items: center;
+    padding: 0;
+}
+
+.header .navbar-nav .nav-item .nav-link {
+    color: #D9D9D9;
+    font-size: 14px;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.header .nav-toggler {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.header .nav-toggler span {
+    display: inline-block;
+    width: 20px;
+    background-color: #FFFFFF;
+    height: 2px;
+}
+
+/* Hero */
+.hero {
+    padding: 140px 0 276px 0;
+    /* background-image: url(../img/hero-bg.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.hero-title {
+    background: linear-gradient(180.84deg, rgba(255, 255, 255, 0.4) 24.02%, rgba(255, 255, 255, 0) 80.83%);
+    font-size: calc(100vw / 9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    line-height: 100%;
+    margin-bottom: 70px;
+    font-family: "Bruno Ace", sans-serif;
+}
+
+.hero-thumb {
+    position: absolute;
+    top: 4.5rem;
+    inset: 4.5rem 0 auto 0;
+    margin: auto;
+    text-align: center;
+}
+
+.hero-about-block {
+    background: #624A7C33;
+    border-radius: 20px;
+    padding: 20px;
+    width: 292px;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-about-title {
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: "Bruno Ace", sans-serif;
+    margin: 0 0 5px 0;
+}
+
+.hero-about-desc {
+    color: #FFFFFF85;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+    font-family: "Bruno Ace", sans-serif;
+}
+
+.hero-mission-block {
+    background: linear-gradient(180deg, #820A8B 0%, #38288B 100%);
+    border-radius: 20px;
+    padding: 20px;
+    width: 305px;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-mission-title {
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: "Bruno Ace", sans-serif;
+    margin: 0 0 5px 0;
+}
+
+.hero-mission-desc {
+    color: #FFFFFF85;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+    font-family: "Bruno Ace", sans-serif;
+}
+
+
+/* Counter */
+.counter {
+    padding: 180px 0 80px 0;
+    z-index: 8;
+    position: relative;
+    margin-top: -315px;
+}
+
+.counter .counter-bg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+    /* object-fit: cover; */
+}
+
+.counter .counter-block .counter-count {
+    font-size: 48px;
+    color: #2E1149;
+    font-weight: 900;
+    line-height: 100%;
+    margin-bottom: 0 0 6px 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.counter .counter-block .counter-desc {
+    font-size: 20px;
+    color: #2E1149;
+    margin-bottom: 0 0 6px 0;
+    line-height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+.counter .counter-block .student-wrapper .student-thumb2,
+.counter .counter-block .student-wrapper .student-thumb3 {
+    margin-left: -4px;
+}
+
+/* Mission */
+
+.mission {
+    padding: 180px 0 90px 0;
+    position: relative;
+}
+
+.mission .section-title {
+    font-size: 40px;
+    color: #2E1149;
+    font-weight: 900;
+    line-height: 100%;
+    letter-spacing: 7%;
+    margin: 0 0 20px 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.mission .mission-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mission .mission-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.mission .mission-item .mission-item-thumb {
+    background-color: #F5E3F6;
+    height: 92px;
+    width: 84px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission .mission-item .mission-item-thumb img {
+    width: 55px;
+}
+
+.mission .mission-item .mission-item-title {
+    font-size: 17px;
+    margin: 0 0 6px 0;
+    color: #2E1149;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 3%;
+}
+
+.mission .mission-item .mission-item-desc {
+    font-size: 15px;
+    margin: 0;
+    color: #3C3936;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.75;
+    font-weight: 400;
+    letter-spacing: 3%;
+}
+
+.mission .mission-thumb-bg {
+    background-color: #431A76;
+    border-radius: 44px;
+    width: 100%;
+    height: 550px;
+    position: relative;
+}
+
+.mission .mission-thumb-bg .mission-thumb {
+    position: absolute;
+    inset: 0;
+    max-width: 100%;
+    margin: auto;
+    /* max-height: 100%; */
+    /* object-fit: contain; */
+}
+
+/* Research */
+.research {
+    position: relative;
+    padding: 260px 0 104px 0;
+}
+
+.research-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.research .research-content-wrapper {
+    padding: 257px 115px 160px 115px;
+    position: relative;
+    background: linear-gradient(180deg, #592295 0%, #260A4A 58.18%);
+    border-radius: 130px;
+
+    --r: 120px;
+    /* control the rounded part */
+    --s: 220px;
+    /* control the size of the cut */
+    --a: 33deg;
+    /* control the depth of the curvature */
+    --p: 50%;
+    /* control the position */
+
+    --_m: var(--r), #000 calc(100% - 1px), #0000;
+    --_d: (var(--s) + var(--r))*cos(var(--a));
+    mask:
+        radial-gradient(var(--r) at calc(var(--p) + var(--_d)) var(--_m)),
+        radial-gradient(var(--r) at calc(var(--p) - var(--_d)) var(--_m)),
+        radial-gradient(var(--s) at var(--p) calc(-1*sin(var(--a))*var(--s)),
+            #0000 100%, #000 calc(100% + 1px)) 0 calc(var(--r)*(1 - sin(var(--a)))) no-repeat,
+        linear-gradient(90deg, #000 calc(var(--p) - var(--_d)), #0000 0 calc(var(--p) + var(--_d)), #000 0);
+}
+
+
+.research .section-title {
+    font-size: 45px;
+    color: #FFFFFF;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
+    margin: 0 0 34px 0;
+    text-align: center;
+    letter-spacing: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.research .research-pills-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.research .research-pills-wrapper:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.research .research-pills-wrapper .research-pills {
+    display: inline-block;
+    padding: 20px;
+    background-color: #FFFFFF1C;
+    font-size: 15px;
+    color: #FFFFFF;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+}
+
+.research .research-planet {
+    position: absolute;
+    inset: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50px;
+}
+
+/* Footer */
+.footer {
+    border-radius: 90px 90px 0 0;
+    padding: 54px 0 20px 0;
+    background-color: #120225;
+}
+
+.footer .footer-logo {
+    margin-bottom: 40px;
+    width: 375px;
+    max-width: 100%;
+}
+
+.footer .footer-link-wrapper {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer .footer-link {
+    display: inline-block;
+    font-size: 18px;
+    color: #FEFEFEAB;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.footer .footer-link:hover {
+    color: #FFF;
+}
+
+.footer li:not(:last-child) .footer-link {
+    margin-bottom: 30px;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #FFFFFF33;
+}
+
+.footer-bottom .copyright-txt {
+    font-size: 18px;
+    color: #FEFEFEAB;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 0;
+}

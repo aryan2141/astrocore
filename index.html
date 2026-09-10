@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrocore</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Play:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" data-scroll-target="home" aria-label="Astrocore home">
+                    <img src="./assets/img/logo.png" alt="" class="logo">
+                </a>
+
+                <ul class="nav navbar-nav" id="primary-navigation">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link" data-scroll-target="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#missions" class="nav-link" data-scroll-target="missions">Missions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#research" class="nav-link" data-scroll-target="research">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" data-scroll-target="contact">Contact</a>
+                    </li>
+                </ul>
+
+                <a href="/" class="btn btn-login d-none d-md-inline-block">Login</a>
+
+                <button id="nav-toggler" class="nav-toggler d-md-none" type="button" aria-label="Open navigation"
+                    aria-expanded="false" aria-controls="primary-navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section hero" id="home">
+        <img src="./assets/img/hero-bg1.png" alt="" class="hero-bg">
+        <div class="container position-relative" style="z-index: 6;">
+            <h1 class="hero-title">Astrocore</h1>
+            <img src="./assets/img/hero-thumb.png" alt="" class="hero-thumb">
+            <div class="d-flex align-items-stretch flex-column flex-sm-row justify-content-between gap-4">
+                <div class="hero-about-block">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <img src="./assets/img/planet-icon.png" alt="" width="40px">
+                        <h5 class="hero-about-title">About</h5>
+                    </div>
+                    <p class="hero-about-desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam.
+                    </p>
+                </div>
+
+                <div class="hero-mission-block">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <img src="./assets/img/rocket-icon.png" alt="" width="40px">
+                        <h5 class="hero-mission-title">Mission</h5>
+                    </div>
+                    <p class="hero-mission-desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section counter">
+        <img src="./assets/img/counter-bg.png" alt="" class="counter-bg">
+        <div class="container">
+            <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-4">
+                <div class="d-flex align-items-center gap-5 counter-block-left mb-5 mb-sm-0">
+                    <div class="counter-block">
+                        <h5 class="counter-count">12+</h5>
+                        <p class="counter-desc mb-0">Spacewalks</p>
+                    </div>
+
+                    <div class="counter-block">
+                        <h5 class="counter-count">10+</h5>
+                        <p class="counter-desc mb-0">Missions</p>
+                    </div>
+                </div>
+
+                <div class="counter-block counter-block-right">
+                    <p class="counter-desc">Students joined us</p>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="student-wrapper d-flex">
+                            <img src="./assets/img/student1.png" alt="" class="student-thumb student-thumb1">
+                            <img src="./assets/img/student2.png" alt="" class="student-thumb student-thumb2">
+                            <img src="./assets/img/student3.png" alt="" class="student-thumb student-thumb3">
+                        </div>
+                        <h5 class="counter-count mb-0">
+                            1000+
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section mission" id="missions">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h5 class="section-title">Mission Experience</h5>
+                    <div class="mission-item-wrapper">
+                        <div class="mission-item">
+                            <div class="mission-item-thumb">
+                                <img src="./assets/img/planet-icon-blue.png" alt="" width="25px">
+                            </div>
+                            <div class="mission-item-content">
+                                <h5 class="mission-item-title">Mission Mangal</h5>
+                                <p class="mission-item-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    Lorem ipsum dolor sit amet, consectetur adi</p>
+                            </div>
+                        </div>
+                        <div class="mission-item">
+                            <div class="mission-item-thumb">
+                                <img src="./assets/img/planet-icon-blue.png" alt="" width="25px">
+                            </div>
+                            <div class="mission-item-content">
+                                <h5 class="mission-item-title">Mission Mangal</h5>
+                                <p class="mission-item-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    Lorem ipsum dolor sit amet, consectetur adi</p>
+                            </div>
+                        </div>
+                        <div class="mission-item">
+                            <div class="mission-item-thumb">
+                                <img src="./assets/img/planet-icon-blue.png" alt="" width="25px">
+                            </div>
+                            <div class="mission-item-content">
+                                <h5 class="mission-item-title">Mission Mangal</h5>
+                                <p class="mission-item-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    Lorem ipsum dolor sit amet, consectetur adi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mission-thumb-wrapper">
+                        <div class="mission-thumb-bg">
+                            <img src="./assets/img/mission-thumb.png" alt="" class="mission-thumb">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section research" id="research">
+        <div class="container">
+            <img src="./assets/img/planet.png" alt="" class="research-planet">
+            <div class="research-content-wrapper">
+                <!-- <img src="./assets/img/research-bg.png" alt="" class="research-bg d-none d-md-block"> -->
+                <!-- <img src="./assets/img/research-bg-mob.png" alt="" class="research-bg d-md-none"> -->
+                <h5 class="section-title">
+                    <img src="./assets/img/planet-icon.png" alt="" width="90px">
+                    Research & Contribution
+                </h5>
+
+                <div class="research-pills-wrapper research-pills-wrapper-top">
+                    <span class="research-pills">Lorem ipsum dolor sit amet Lorem</span>
+                    <span class="research-pills">psum dolor sit ametorem ipsum dolor sit amet</span>
+                    <span class="research-pills">Lorem ipsum dolor sit amet</span>
+                </div>
+                <div class="research-pills-wrapper research-pills-wrapper-bottom">
+                    <span class="research-pills">Lorem ipsum dolor sit amet Lorem</span>
+                    <span class="research-pills">Lorem ipsum dolor sit amet</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer" id="contact">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <ul class="footer-link-wrapper">
+                            <li>
+                                <a href="/" class="">
+                                    <img src="./assets/img/footer-logo.png" alt="" class="footer-logo" width="375px">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="footer-link mb-3">+X XXXXXXXX</a>
+                            </li>
+                            <li>
+                                <a href="/" class="footer-link">astrocore123@xyz.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="footer-link-block d-flex align-items-center justify-content-between gap-5">
+                            <ul class="footer-link-wrapper">
+                                <li>
+                                    <a href="/" class="footer-link">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="footer-link">Services</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="footer-link">Technology</a>
+                                </li>
+                            </ul>
+
+                            <ul class="footer-link-wrapper">
+                                <li>
+                                    <a href="/" class="footer-link">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="footer-link">Services</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="footer-link">Technology</a>
+                                </li>
+                            </ul>
+
+                            <ul class="footer-link-wrapper">
+                                <li>
+                                    <a href="/" class="footer-link">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="footer-link">Services</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="footer-link">Technology</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom d-flex align-items-center justify-content-between gap-3 flex-wrap">
+                <p class="copyright-txt">&copy; 2026 This site is created for demo purpose.</p>
+
+                <div class="footer-bottom-link-wrapper d-flex align-items-center gap-4">
+                    <a href="/" class="footer-link">Private Policy</a>
+                    <a href="/" class="footer-link">Teams and Condition</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+
+    <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

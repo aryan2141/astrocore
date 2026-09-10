@@ -1,0 +1,271 @@
+@media screen and (max-width: 1199px) {
+    .hero .hero-thumb {
+        width: 430px;
+    }
+
+    /* Research */
+    .research .section-title {
+        font-size: 40px;
+    }
+
+    /* Research */
+
+    .research {
+        padding: 270px 0 104px 0;
+    }
+
+    .research .research-content-wrapper {
+        --r: 140px;
+        --s: 175px;
+        padding: 180px 80px 100px 80px;
+        border-radius: 80px;
+    }
+
+    .research .research-planet {
+        top: 130px;
+        width: 250px;
+    }
+
+    /* Footer */
+    .footer .footer-logo{
+        width: 290px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+        max-width: 100%;
+    }
+
+    /* Hero */
+    .hero .hero-title {
+        font-size: calc(100vw / 7);
+    }
+
+    .hero .hero-thumb {
+        width: 380px;
+        inset: 9rem 0 auto 0;
+    }
+
+    /* Mission */
+    .mission .mission-thumb-bg {
+        margin-top: 10rem;
+    }
+
+    /* Research */
+    .research .section-title {
+        font-size: 38px;
+    }
+
+    .research .section-title img {
+        width: 80px;
+    }
+
+    /* Footer */
+    .footer .footer-logo{
+        width: 260px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    /* Header */
+    .header {
+        top: 24px;
+    }
+
+    .header .navbar-nav {
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        width: 100%;
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        display: none;
+        padding: 0.75rem 1.25rem;
+        border-radius: 14px;
+        box-shadow: 0 16px 32px rgba(18, 2, 37, 0.2);
+    }
+
+    .header .navbar-nav.is-open {
+        display: flex;
+    }
+
+    .header .navbar-nav .nav-item,
+    .header .navbar-nav .nav-link {
+        width: 100%;
+    }
+
+    .header .navbar-nav .nav-item .nav-link {
+        color: #2E1149;
+        padding: 0.75rem 0;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+        touch-action: none;
+    }
+
+    /* Hero */
+    .hero .hero-thumb {
+        width: 300px;
+        inset: 14.5rem 0 auto 0;
+    }
+
+
+    /* Research */
+    .research {
+        padding: 240px 0 104px 0;
+    }
+
+    .research .research-content-wrapper {
+        padding: 170px 40px 80px 40px;
+        --r: 70px;
+        --s: 150px;
+        border-radius: 80px;
+    }
+
+    .research .research-planet {
+        top: 110px;
+        width: 200px;
+    }
+
+    /* Research */
+    .research .section-title {
+        font-size: 32px;
+    }
+
+    .research .section-title img {
+        width: 65px;
+    }
+
+    /* Footer */
+    .footer .footer-logo{
+        width: 220px;
+    }
+}
+
+
+@media screen and (max-width: 575px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 110px 0 60px 0;
+    }
+
+
+    .hero .hero-title {
+        margin: 0;
+    }
+
+
+    .hero .hero-thumb {
+        display: block;
+        position: static;
+        margin: -3rem auto 1.5rem auto;
+        width: min(300px, 88vw);
+    }
+
+    .hero-about-block,
+    .hero-mission-block {
+        width: 100%;
+    }
+
+    /* Counter */
+    .counter {
+        margin: 0;
+        padding: 60px 0;
+    }
+
+    /* Mission */
+    .mission {
+        padding: 60px 0 90px 0;
+    }
+
+    .mission .mission-item {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .mission .mission-item .mission-item-thumb {
+        width: 64px;
+        height: 76px;
+    }
+
+    .mission .mission-item .mission-item-thumb img {
+        width: 44px;
+    }
+
+    .mission .mission-thumb-bg {
+        height: min(550px, 130vw);
+        border-radius: 32px;
+    }
+
+    /* Research */
+    .research {
+        padding: 225px 0 104px 0;
+    }
+
+    .research .research-planet {
+        top: 120px;
+        width: 150px;
+    }
+
+    .research .section-title {
+        font-size: 28px;
+        gap: 0.5rem;
+    }
+
+    .research .research-content-wrapper {
+        padding: 120px 20px 60px 20px;
+        --r: 40px;
+        --s: 110px;
+        border-radius: 55px;
+    }
+
+    .research .research-pills-wrapper:not(:last-child) {
+        margin-bottom: 15px;
+    }
+
+    .research .research-pills-wrapper {
+        gap: 15px;
+    }
+
+    .research .research-pills-wrapper .research-pills {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .footer {
+        border-radius: 42px 42px 0 0;
+    }
+
+    .footer .footer-logo {
+        width: 190px;
+        margin-bottom: 28px;
+    }
+
+    .footer .footer-top .footer-link-block {
+        align-items: flex-start !important;
+        flex-wrap: wrap;
+        gap: 1.5rem !important;
+        margin-top: 2rem;
+    }
+
+    .footer-bottom {
+        align-items: flex-start !important;
+        flex-direction: column;
+        margin-top: 32px;
+    }
+
+    .footer-bottom .footer-bottom-link-wrapper {
+        flex-wrap: wrap;
+        gap: 0.75rem 1rem !important;
+    }
+}
