@@ -18,8 +18,26 @@
 </head>
 
 <body class="loader-active">
-    <div class="astro-loader">
-        <h5>Astrocore</h5>
+    <div class="astro-loader" role="status" aria-label="Loading Astrocore">
+        <div class="loader-space" aria-hidden="true">
+            <div class="loader-scene">
+                <div class="loader-planet-wrap">
+                    <img src="./assets/img/planet.png" alt="" class="loader-planet">
+                </div>
+                <svg class="loader-orbit" viewBox="0 0 300 200" fill="none" focusable="false">
+                    <defs>
+                        <linearGradient id="loader-orbit-gradient" x1="20" y1="100" x2="280" y2="100"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#38BDF8" stop-opacity=".25" />
+                            <stop offset=".5" stop-color="#A855F7" stop-opacity=".95" />
+                            <stop offset="1" stop-color="#EC4899" stop-opacity=".35" />
+                        </linearGradient>
+                    </defs>
+                    <ellipse class="loader-orbit-path" cx="150" cy="100" rx="142" ry="66" pathLength="100" />
+                </svg>
+                <img src="./assets/img/planet.png" alt="" class="loader-satellite">
+            </div>
+        </div>
     </div>
 
     <header class="header">

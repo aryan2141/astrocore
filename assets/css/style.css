@@ -54,9 +54,105 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     z-index: 111;
-    background: #000;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 48%, rgba(139, 92, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 65% 72%, rgba(236, 72, 153, 0.08), transparent 28%),
+        #05010D;
+}
+
+.loader-space {
+    position: relative;
+    display: grid;
+    width: min(100%, 620px);
+    min-height: 100%;
+    place-items: center;
+}
+
+.loader-scene {
+    position: relative;
+    width: clamp(190px, 42vw, 340px);
+    aspect-ratio: 1;
+    will-change: transform, opacity;
+}
+
+.loader-planet-wrap {
+    position: absolute;
+    inset: 11%;
+    border-radius: 50%;
+}
+
+.loader-planet-wrap::before {
+    position: absolute;
+    inset: 12%;
+    border-radius: inherit;
+    background: rgba(168, 85, 247, 0.32);
+    box-shadow: 0 0 38px 18px rgba(139, 92, 255, 0.24);
+    content: "";
+}
+
+.loader-planet {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(236, 72, 153, 0.24));
+    will-change: transform, opacity;
+}
+
+.loader-orbit {
+    position: absolute;
+    top: 12%;
+    left: -43%;
+    width: 186%;
+    height: 76%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.loader-orbit-path {
+    stroke: url(#loader-orbit-gradient);
+    stroke-width: 1.4;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    opacity: 0;
+    filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.52));
+}
+
+.loader-satellite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(14px, 4vw, 26px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 14px 4px rgba(56, 189, 248, 0.42);
+    offset-path: ellipse(84% 28% at 50% 50%);
+    offset-distance: 0%;
+    offset-rotate: 0deg;
+    will-change: transform, opacity, offset-distance;
+}
+
+@media (max-width: 575px) {
+    .loader-scene {
+        width: clamp(175px, 58vw, 250px);
+    }
+
+    .loader-orbit {
+        left: -46%;
+        width: 192%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-planet,
+    .loader-orbit-path,
+    .loader-satellite,
+    .loader-scene {
+        will-change: auto;
+    }
 }
 
 /* GSAP reveal transforms begin outside their own section. Clip those transient
@@ -117,6 +213,10 @@ img {
     font-size: 14px;
     padding: 0;
     font-family: "Roboto", sans-serif;
+}
+
+.header .navbar-nav .nav-item .nav-link:hover{
+    color: #FFF;
 }
 
 .header .nav-toggler {

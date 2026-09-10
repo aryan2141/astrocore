@@ -239,8 +239,44 @@ window.addEventListener("load", refreshScrollTriggers, { once: true });
 if (document.fonts) document.fonts.ready.then(refreshScrollTriggers);
 
 const loader = document.querySelector(".astro-loader");
-const minimumLoaderTime = 500;
-const loaderStartedAt = performance.now();
+const loaderScene = loader?.querySelector(".loader-scene");
+const loaderPlanet = loader?.querySelector(".loader-planet");
+const loaderOrbit = loader?.querySelector(".loader-orbit-path");
+const loaderSatellite = loader?.querySelector(".loader-satellite");
+const reduceLoaderMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let resolveLoaderIntro;
+const loaderIntroComplete = new Promise((resolve) => {
+    resolveLoaderIntro = resolve;
+});
+
+// This is the only timeline dedicated to the preloader. The existing site
+// entrance and ScrollTrigger animations remain separate and unchanged.
+const loaderTimeline = gsap.timeline({ paused: true });
+
+if (reduceLoaderMotion) {
+    loaderTimeline
+        .set(loaderPlanet, { autoAlpha: 0, scale: 0.08 })
+        .set(loaderOrbit, { autoAlpha: 0, strokeDashoffset: 100 })
+        .set(loaderSatellite, { autoAlpha: 0, scale: 0.5, offsetDistance: "0%" })
+        .to(loaderPlanet, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "power1.out" })
+        .to(loaderOrbit, { autoAlpha: 1, strokeDashoffset: 0, duration: 0.15, ease: "power1.out" })
+        .to(loaderSatellite, { autoAlpha: 1, scale: 1, duration: 0.1, ease: "power1.out" })
+        .call(resolveLoaderIntro);
+} else {
+    loaderTimeline
+        .set(loaderPlanet, { autoAlpha: 0, scale: 0.06 })
+        .set(loaderOrbit, { autoAlpha: 0, strokeDashoffset: 100 })
+        .set(loaderSatellite, { autoAlpha: 0, scale: 0.45, offsetDistance: "0%" })
+        .to(loaderPlanet, { autoAlpha: 1, scale: 1, duration: 1.05, ease: "power2.out" })
+        .to(loaderOrbit, { autoAlpha: 1, strokeDashoffset: 0, duration: 0.55, ease: "power1.out" }, "-=0.12")
+        .to(loaderSatellite, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "power1.out" }, "-=0.1")
+        .addLabel("loader-ready")
+        .call(resolveLoaderIntro, [], "loader-ready")
+        .to(loaderSatellite, { offsetDistance: "100%", duration: 4.5, ease: "none", repeat: -1 }, "loader-ready");
+}
+
+loaderTimeline.play(0);
 
 function waitForImage(image) {
     return new Promise((resolve) => {
@@ -263,14 +299,23 @@ function waitForImage(image) {
 async function finishLoader() {
     // Only images that belong to the initial hero are relevant to this loader.
     const heroImages = [...document.querySelectorAll(".hero img")];
-    await Promise.all(heroImages.map(waitForImage));
+    await Promise.all([
+        Promise.all(heroImages.map(waitForImage)),
+        loaderIntroComplete
+    ]);
 
-    const remainingTime = Math.max(0, minimumLoaderTime - (performance.now() - loaderStartedAt));
-    if (remainingTime) {
-        await new Promise((resolve) => window.setTimeout(resolve, remainingTime));
-    }
+    const exitStart = loaderTimeline.time();
+    loaderTimeline
+        .to(loaderScene, { autoAlpha: 0, scale: 0.94, duration: 0.28, ease: "power2.in" }, exitStart)
+        .to(loader, { autoAlpha: 0, duration: 0.4, ease: "power2.inOut" }, exitStart + 0.12)
+        .call(() => {
+            loaderTimeline.kill();
+            loader?.remove();
+            startPageAfterLoader();
+        }, [], exitStart + 0.53);
+}
 
-    loader?.remove();
+function startPageAfterLoader() {
     document.documentElement.classList.remove("loader-active");
     document.body.classList.remove("loader-active");
     loaderIsActive = false;
